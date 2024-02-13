@@ -1,0 +1,7 @@
+html dosyaları için klasor olusturmalıyız
+
+klasoru setting bolumnude Templates bolumunun DIRS yerine adını belirtmeliyiz
+
+Olusturula urler urlsklasorunde belirtilmeli
+
+flask ta yazılan anasayfa gibi request işlemlerin yapıldığı metodlar uygulamanın  views bolumnune yazılır ondan snra urls de import edilerek çağrılır

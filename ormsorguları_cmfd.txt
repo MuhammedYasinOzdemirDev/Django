@@ -1,0 +1,92 @@
+python manage.py shell ile panel açılır
+
+from django.contrib.auth.models import User
+bu ile User modeli contrip uygulamasının models klasorunden alınır
+
+from article.models import Article
+ile Article modeli alınır
+
+: newUser=User(username="Muhammed Yasin",password="123")
+
+In [7]: newUser
+Out[7]: <User: Muhammed Yasin>
+
+In [8]: newUser.save()
+bu sekilde kullanıcı kayıt ettrilir
+
+In [9]: newUser2=User(username="Mustafa")
+
+In [10]: newUser2.set_password("123")
+
+In [11]: newUser2.save()
+ bu ornekte fark olarak set_passaword şifreli bir şekilde kaydeder
+
+ In [12]: newUser3=User()
+
+In [13]: newUser3.username="Deneme"
+
+In [14]: newUser3.firstname="Myasin"
+
+In [15]: newUser3.set_password="12345"
+
+In [16]: newUser3.save()
+
+buda ikinci yol
+
+In [17]: article=Article(title="Makale 2",content="İçerik",author=newUser3)
+
+In [18]: article
+Out[18]: <Article: Makale 2>
+
+In [19]: article.save()
+
+boyle makale eklenir authorda yukardaki kullanıclardan veya modelsl içerisindeki kullanıclardan verilebilir
+
+In [20]: Article.objects.create(title="Deneme Shell",content="İçerik 2",author=newUser2)
+Out[20]: <Article: Deneme Shell>
+
+bu yontemde direk tek satırda olusturulur
+
+In [21]: article2=Article.objects.create(title="Deneme Shell",content="İçerik 2",author=newUser2)
+
+In [22]: article2.title
+Out[22]: 'Deneme Shell'
+
+değişkenede atanabilir ve değeri gosterilebilir
+
+In [23]: article2.title="Deneme shell değişen"
+
+In [24]: article.save()
+
+bu article başlık değişmeye yarar
+
+In [25]: Article.objects.all()
+Out[25]: <QuerySet [<Article: Makale 1>, <Article: Makale 2>, <Article: Deneme Shell>, <Article: Deneme Shell>]>
+
+In [26]: Article.objects.get(title="Makale 1")
+Out[26]: <Article: Makale 1>
+
+bu komutlar ile makale gozukkmesi hepsi ve get ile title gore makale alımı yapılabilir
+
+In [27]: article3=Article.objects.get(title="Makale 1")
+
+In [28]: article3.delete()
+Out[28]: (1, {'article.Article': 1})
+
+title gore alıp slmeye yarar
+
+In [34]: article4=Article.objects.get(id=4)
+
+In [35]: article4
+Out[35]: <Article: Deneme Shell>
+
+id ye gore alma ornegi
+
+In [36]: Article.objects.filter(title__contains="Mak")
+Out[36]: <QuerySet [<Article: Makale 2>]>
+
+Mak gecenleri almaya yarar title gore filtreleme yapar
+
+https://docs.djangoproject.com/en/2.0/topics/db/queries/
+
+sorgular hepsi bu adreste var

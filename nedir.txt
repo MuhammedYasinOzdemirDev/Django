@@ -1,0 +1,24 @@
+startproject proje olusturur
+
+Admin paneli için
+Sql  tobloları olusturmamız lazım
+python manage.py migrate ile tablolar oluşur hazır modeller olusur bu modellerle bir çok özellik yapılabilir
+hazır kullanıcı modeli gibi tablolar olusur
+
+kullanıcı olusturma python manage.py createsuperuser
+
+Uygulama olusturma projeleri farklı parçalara ayırmay yarar
+python manage.py startapp uygulamaismi
+
+uygulama django soylemek için uygulamayı setting kaydetmek lazım projenin
+
+uygulama modellerini tablolarını veritabanıda olusturmak için
+
+1-Adım 
+python manage.py makemigrations diyip 
+uygulama migrations klasorun altında tablo olusturma kodları olustururlur
+2-Adım
+python manage.py migrate diyerek tabloları olsuturur uygulamalırnın 
+eklendiğinde migrate edilecek
+
+request ile session gibi giriş yapmışmı kullancııc adı vb bilgilere ulaşabaliriz

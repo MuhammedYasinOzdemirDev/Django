@@ -1,0 +1,15 @@
+https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+{% load static %}
+<img src="{% static "my_app/example.jpg" %}" alt="My image"/>
+ 
+statci dosyaları css javascript ve resim vidoe gibi dosyaların tek bir klasor altında toplanıp ve uygulama klasorune yazılırsa html template ise bunu load ederse her yerden kullanabilir
+
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+] default arama yerini değiştirir
+ 
+ Uygulama altında olmalı
