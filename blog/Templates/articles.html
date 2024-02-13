@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if articles%}
+<div class="container mt-3"></div>
+{% csrf_token%}
+<form><!--Farklı bir yontem olarak search gondeririz-->
+    <div class="mt-3 inputs input-group container">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control" name="keyword"
+            placeholder="Search Article..."><!--Bilgi name değerine gore alınır-->
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </div>
+</form>
+{%for article in articles %}
+
+<div class="row">
+    <div class="col-lg-8 mt-3">
+        <!-- Post content-->
+        <article>
+            <!-- Post header-->
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="fw-bolder mb-1">{{article.title}}</h1>
+                <hr>
+                <small>{{article.created_date}}</small>
+                <hr>
+            </header>
+            <!-- Post content-->
+            <section class="mb-5">
+                <p class="fs-5 mb-4">{{article.content|truncatewords:2}}</p>
+                <!--Djanjo template fitresi kullandık max 10 karekter barındırı sonda  ... olur-->
+                <a href="/articles/detail/{{article.id}}" class="btn btn-primary" style="float:right">
+                    Devamını oku
+                </a>
+            </section>
+
+        </article>
+    </div>
+    {%endfor%}
+    {%else%}
+    <div class="alert alert-danger mt-5">
+        <p>Makale Bulunmuyor</p>
+    </div>
+    {%endif%}
+    {% endblock%}

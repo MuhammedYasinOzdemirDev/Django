@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% load crispy_forms_tags %}
+{%block body %}
+<!--cripsy form belirtmemeiz lazım-->
+<br>
+<h3>Kayıt Ol</h3>
+<hr>
+<form method="post">
+    {% csrf_token %}<!--Guvenlik amacı ile mutlaka olmalı-->
+    {{ form.as_p }}<!--Form gosterilmesi için gerekli-->
+    <button class="btn btn-danger" type="submit"> Kayıt Ol</button>
+</form>
+
+{% endblock%}

@@ -1,0 +1,1 @@
+#python modulu oldugunu belirtir
